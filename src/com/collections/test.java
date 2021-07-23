@@ -5,15 +5,13 @@ public class test {
     public static String reverseWord(String s, int i){
         String[] split = s.split("\\s+");
         String r = doReverse(split[i]);
-
-        split[i] = r;
-
-        String m = "";
-        for (String var : split) {
-            m = var+" ";
+        StringBuffer sb = new StringBuffer();
+        for(int k = 0; k < split.length; k++) {
+            if(k == i)
+                sb.append(" "+r+" ");
+            else sb.append(" "+split[k]+" ");
         }
-
-        return m;
+        return sb.toString();
     }
 
     private static String doReverse(String s){
@@ -24,6 +22,6 @@ public class test {
 
     public static void main (String[] args){
         String input = "Emandleni is the second child";
-        System.out.println(reverseWord(input,0));
+        System.out.println(reverseWord(input, 3));
     }
 }
